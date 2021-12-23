@@ -31,6 +31,8 @@ dependencies:
   get_it: ^7.2.0
   gson: ^0.1.4
   retrofit: ^2.0.1
+  flutter_bloc: ^8.0.0
+  hive: ^2.0.5
 
 dev_dependencies:
   flutter_test:

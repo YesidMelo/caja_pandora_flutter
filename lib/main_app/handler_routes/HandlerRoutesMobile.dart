@@ -1,5 +1,3 @@
-import 'package:caja_pandora_final/main_app/mainApp.dart';
-
 part of 'HandlerRoutes.dart';
 
 class HandlerRoutesMobile extends HandlerRoutes {

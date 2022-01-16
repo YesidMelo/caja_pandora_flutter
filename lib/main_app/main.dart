@@ -1,12 +1,11 @@
+import 'package:caja_pandora_final/di/locator.dart';
 import 'package:caja_pandora_final/main_app/EnumRoutes.dart';
 import 'package:caja_pandora_final/main_app/handler_routes/HandlerRoutes.dart';
 import 'package:caja_pandora_final/main_app/handler_routes/HandlerRoutesFactory.dart';
 import 'package:caja_pandora_final/ui/bloc/splash/splash_bloc.dart';
+import 'package:caja_pandora_final/utils/language/language.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../my_home_page.dart';
-import '../di/locator.dart';
 
 void main() {
   initLocator();
@@ -14,6 +13,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  
+  LanguageFactory _languageFactory = LanguageFactory.getInstance();
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,10 @@ class MyApp extends StatelessWidget {
         ], 
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: _languageFactory.getCurrentLanguage().getText(tag: LanguageTags.NAME_APPLICATION),
           theme: ThemeData(primarySwatch: Colors.blue,),
           //home: MyHomePage(title: 'Flutter Demo Home Page')
-          initialRoute: RoutesApplication.PUBLIC_PERSONS.getRouteString(),
+          initialRoute: RoutesApplication.SPLASH.getRouteString(),
           routes: handlerRoutes.getRoutes(),
         )
     );
